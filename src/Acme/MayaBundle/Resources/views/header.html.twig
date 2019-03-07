@@ -1,0 +1,13 @@
+<header id="header">
+    
+    {{ include("MayaBundle::menu.html.twig") }}
+    
+    <div id="contenidoSitio">
+    {% if hideData is not defined %}
+        {{ include("MayaBundle::carousel.html.twig") }}
+        {{ include("MayaBundle::contentHome.html.twig") }}
+    {% endif %}
+    </div>
+    
+</header>
+

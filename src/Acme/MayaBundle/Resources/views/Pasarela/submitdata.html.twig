@@ -1,0 +1,20 @@
+<html>
+<body onload="postit();">
+    <form id="payment" name="payment" action="{{ payment_url }}" method="post" />
+        <input type="hidden" name="access_key" value="{{ data.access_key }}" />
+        <input type="hidden" name="profile_id" value="{{ data.profile_id }}" />
+        <input type="hidden" name="transaction_uuid" value="{{ data.transaction_uuid }}" />
+        <input type="hidden" name="signed_date_time" value="{{ data.signed_date_time }}" />
+        <input type="hidden" name="locale" value="{{ data.locale }}" />
+        <input type="hidden" name="transaction_type" value="{{ data.transaction_type }}" />
+        <input type="hidden" name="reference_number" value="{{ data.reference_number }}" />
+        <input type="hidden" name="amount" value="{{ data.amount }}" />
+        <input type="hidden" name="bill_to_email" value="{{ data.bill_to_email }}" />
+        <input type="hidden" name="currency" value="{{ data.currency }}" />
+        <input type="hidden" name="signed_field_names" value='{{ data.signed_field_names }}' />
+        <input type="hidden" name="unsigned_field_names" value="{{ data.unsigned_field_names }}" />
+        <input type="hidden" name="signature" value="{{ signature }}" />
+    </form>
+    <script type="text/javascript">function postit(){ document.payment.submit(); }</script>
+</body>
+</html>

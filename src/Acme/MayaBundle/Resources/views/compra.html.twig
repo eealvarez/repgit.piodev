@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="wrapper" id="wrapper">
+    
+    <input id="keyRecapcha" type="hidden" value="{{ getParameter('recaptcha_public_key') }}">
+    
+    {% include "MayaBundle::header.html.twig" with {'hideData': 'true'}  %}
+    
+    {% include 'MayaBundle::ticket3.html.twig' %}
+
+    <!--footer-->
+    {{ include("MayaBundle::footer.html.twig") }}
+	
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<script type="text/javascript">
+    var autoStartCustomRecaptcha = function (){
+        customRecaptcha.funcionesAddOnload();
+    };
+    
+    $(document).ready(function(){
+        jQuery(function($) {
+            buscarConexion.funcionesAddOnload();
+
+            $(window).resize(function(){
+                buscarConexion.styleResize();
+            });
+        }); 
+    });
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=autoStartCustomRecaptcha&render=explicit" async defer></script>
+
+{% endblock %}

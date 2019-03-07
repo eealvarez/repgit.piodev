@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="wrapper" id="wrapper">
+    
+    {% include "MayaBundle::header.html.twig" with {'hideData': 'true'}  %}
+    
+    <section class="feedback" id="feedback">
+        <div class="container">
+            <div class="heading">
+                <img class="dividerline" src="{{ asset('bundles/maya/images/sep.png') }}" alt="">
+                <h2>Compra en linea</h2>
+                <img class="dividerline" src="{{ asset('bundles/maya/images/sep.png') }}" alt="">
+            </div>
+            <div class="restmenuwrap text-center alert alert-danger">
+                <h3>
+                    {{ title }}
+                </h3>
+
+                {% if(message is defined) %}
+                <p>
+                    {{ message }}
+                </p>
+                {% endif %}
+
+                <a class="btn btn-primary" href="{{ path('ticket-full') }}" title="Regresar a la compra.">
+                    Iniciar una nueva compra
+                </a>
+                <BR><BR>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    {{ include("MayaBundle::footer.html.twig") }}
+	
+</div>
+{% endblock %}
